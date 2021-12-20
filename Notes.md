@@ -7,3 +7,8 @@ sudo apt install nodejs
 sudo apt install libgpiod
 ```
 
+## Install python stuff
+
+```
+pip3 install -r pi_temp/requirements.txt
+```
