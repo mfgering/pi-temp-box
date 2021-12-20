@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Python: get_sensor",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/pi_temp/get_sensor.py",
+      "console": "integratedTerminal"
+    },
+    {
       "type": "pwa-node",
       "request": "launch",
       "name": "Launch Program",
