@@ -14,11 +14,14 @@
     {
       "type": "pwa-node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Node.js app",
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/node-app/bin/www"
+      "program": "${workspaceFolder}/node-app/bin/www",
+      "env": {
+        "PORT": "3001"
+      }
     }
   ]
 }
