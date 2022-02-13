@@ -12,3 +12,9 @@ sudo apt install libgpiod
 ```
 pip3 install -r pi_temp/requirements.txt
 ```
+
+## Install PM2
+
+```
+sudo npm install pm2 -g
+```
