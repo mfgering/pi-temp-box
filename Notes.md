@@ -18,3 +18,8 @@ pip3 install -r pi_temp/requirements.txt
 ```
 sudo npm install pm2 -g
 ```
+
+# Misc
+
+[Nodejs/dht22](https://www.npmjs.com/package/node-dht-sensor)
+
