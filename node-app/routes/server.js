@@ -21,12 +21,19 @@ router.get('/json', function(req, res, next) {
 
 module.exports = router;
 
+MOCK = true;
+
 function get_sensor_data() {
-  const command = '/home/pi/projects/pi-temp-box/pi_temp/get_sensor.py';
-  var temp = -1;
-  var humidity = -1;
-  const child = require('child_process');
-  var data = child.execSync(command)
-  let json_v = JSON.parse(data);
+  var json_v = {};
+  if (MOCK) {
+    json_v = {'temp': 73.5, 'humidity': 88.2};
+  } else {
+    const command = '/home/pi/projects/pi-temp-box/pi_temp/get_sensor.py';
+    var temp = -1;
+    var humidity = -1;
+    const child = require('child_process');
+    var data = child.execSync(command)
+    json_v = JSON.parse(data);
+  }
   return json_v;
 }
