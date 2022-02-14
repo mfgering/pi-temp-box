@@ -1,3 +1,18 @@
+var nconf = require('nconf');
+nconf.overrides({
+})
+nconf.argv();
+nconf.file({
+  file: './config.json',
+  logicalSeparator: '.'
+});
+nconf.env()
+nconf.defaults({
+  "httpPort": 3001,
+  "dhtPin": 4,
+  "mock": false
+})
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,7 +21,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var serverRouter = require('./routes/server');
+var sensorRouter = require('./routes/sensor');
 
 var app = express();
 
@@ -22,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/sensor', serverRouter)
+app.use('/sensor', sensorRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

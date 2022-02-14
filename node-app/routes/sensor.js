@@ -1,6 +1,8 @@
+var nconf = require('nconf')
 const { json } = require('express');
 var express = require('express');
 var router = express.Router();
+var sensor = require("node-dht-sensor").promises;
 
 /* GET json sensor page. */
 router.get('/', function(req, res, next) {
@@ -21,19 +23,16 @@ router.get('/json', function(req, res, next) {
 
 module.exports = router;
 
-MOCK = true;
+MOCK = nconf.get('mock');
 
 function get_sensor_data() {
   var json_v = {};
   if (MOCK) {
     json_v = {'temp': 73.5, 'humidity': 88.2};
   } else {
-    const command = '/home/pi/projects/pi-temp-box/pi_temp/get_sensor.py';
-    var temp = -1;
-    var humidity = -1;
-    const child = require('child_process');
-    var data = child.execSync(command)
-    json_v = JSON.parse(data);
+    var data = sensor.readSync(22, nconf.get('dhtPin'));
+    json_v.temp = data.temperature*1.8+32;
+    json_v.humidity = data.humidity;
   }
   return json_v;
 }
