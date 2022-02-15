@@ -1,0 +1,5 @@
+{
+  "httpPort": 3001,
+  "dhtPin": 4,
+  "mock": false
+}

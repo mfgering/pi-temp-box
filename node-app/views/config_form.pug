@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Configuration
+  form(action='/config', method='POST')
+    p 
+      | DHT-22 pin
+      input(name='dht-22-pin', value=nconf.get('dhtPin'), type='number')
+    p
+      | MOCK 
+      input(name='mock', value=nconf.get('mock'), type='radio')
+    p
+    input(value='Save', type='submit')
+
