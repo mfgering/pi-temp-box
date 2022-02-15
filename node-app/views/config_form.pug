@@ -10,5 +10,8 @@ block content
       | MOCK 
       input(name='mock', value=nconf.get('mock'), type='radio')
     p
+      | HTTP Port 
+      input(name='http-port', value=nconf.get('httpPort'), type='number')
+    p
     input(value='Save', type='submit')
 

@@ -17,6 +17,8 @@ router.post('/', function(req, res, next) {
   nconf.set('dhtPin', pin);
   is_mock = req.body['mock'] == 'on' ? true : false;
   nconf.set('mock', is_mock);
+  var port = parseInt(req.body['http-port']);
+  nconf.set('httpPort', port);
   nconf.save();
   res.send("Saved");
 });
