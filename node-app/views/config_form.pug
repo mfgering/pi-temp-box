@@ -13,5 +13,8 @@ block content
       | HTTP Port 
       input(name='http-port', value=nconf.get('httpPort'), type='number')
     p
+      | PIR Polling (milliseconds)
+      input(name='poll-millis', value=nconf.get('pollMillis'), type='number')
+    p
     input(value='Save', type='submit')
 

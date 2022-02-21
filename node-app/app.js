@@ -11,7 +11,8 @@ nconf.defaults({
   "httpPort": 3001,
   "dhtPin": 4,
   "pirPin": 11,
-  "mock": false
+  "mock": false,
+  "pollMillis": 2000
 })
 
 var createError = require('http-errors');
