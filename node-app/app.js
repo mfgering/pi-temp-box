@@ -10,6 +10,7 @@ nconf.env()
 nconf.defaults({
   "httpPort": 3001,
   "dhtPin": 4,
+  "pirPin": 11,
   "mock": false
 })
 
@@ -22,6 +23,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var configRouter = require('./routes/config');
 var sensorRouter = require('./routes/sensor');
+var pirRouter = require('./routes/pir');
 
 var app = express();
 
@@ -38,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/config', configRouter);
 app.use('/sensor', sensorRouter)
+app.use('/pir', pirRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
