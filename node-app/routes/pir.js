@@ -47,12 +47,12 @@ function get_sensor_data() {
   return json_v;
 }
 
-function delayed() {
+function read_delay() {
   console.log("delayed");
   gpio.read(pin_pir, function(err, value) {
     if (err) throw err;
     last_pir_value = value;
   });
-  setTimeout(delayed, poll_millis);
+  setTimeout(read_delay, poll_millis);
 }
-setTimeout(delayed, poll_millis);
+setTimeout(read_delay, poll_millis);

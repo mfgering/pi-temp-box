@@ -12,9 +12,12 @@ nconf.defaults({
   "dhtPin": 4,
   "pirPin": 11,
   "mock": false,
-  "pollMillis": 2000
+  "pollMillis": 2000,
+  "enableDHT": true,
+  "enablePIR": true
 })
-
+enable_pir = nconf.get('enablePIR');
+enable_dht = nconf.get('enableDHT');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -23,8 +26,12 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var configRouter = require('./routes/config');
-var sensorRouter = require('./routes/sensor');
-var pirRouter = require('./routes/pir');
+if(enable_dht) {
+  var sensorRouter = require('./routes/sensor');
+}
+if(enable_dht) {
+  var pirRouter = require('./routes/pir');
+}
 
 var app = express();
 
@@ -40,8 +47,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/config', configRouter);
-app.use('/sensor', sensorRouter)
-app.use('/pir', pirRouter)
+if(enable_dht) {
+  app.use('/sensor', sensorRouter);
+}
+if(enable_pir) {
+  app.use('/pir', pirRouter);
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
