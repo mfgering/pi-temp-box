@@ -4,5 +4,6 @@
   "mock": false,
   "pollMillis": 2000,
   "enableDHT": true,
-  "enablePIR": true
+  "enablePIR": true,
+  "pirPin": 11
 }

@@ -29,7 +29,7 @@ var configRouter = require('./routes/config');
 if(enable_dht) {
   var sensorRouter = require('./routes/sensor');
 }
-if(enable_dht) {
+if(enable_pir) {
   var pirRouter = require('./routes/pir');
 }
 

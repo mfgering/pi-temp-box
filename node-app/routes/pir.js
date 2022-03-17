@@ -39,6 +39,7 @@ function setup_gpio() {
   gpio.setMode(gpio.MODE_RPI);
   gpio.setup(pin_pir, gpio.DIR_IN, gpio.EDGE_NONE, (err) => {
     if(err) throw err;
+    setTimeout(read_delay, poll_millis);
   });
 };
 
@@ -55,4 +56,3 @@ function read_delay() {
   });
   setTimeout(read_delay, poll_millis);
 }
-setTimeout(read_delay, poll_millis);

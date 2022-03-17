@@ -19,6 +19,8 @@ router.post('/', function(req, res, next) {
   nconf.set('mock', is_mock);
   var port = parseInt(req.body['http-port']);
   nconf.set('httpPort', port);
+  var pir_pin = parseInt(req.body['pir-pin']);
+  nconf.set('pirPin', pir_pin);
   var millis = parseInt(req.body['poll-millis']);
   nconf.set('pollMillis', millis);
   nconf.save();

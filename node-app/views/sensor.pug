@@ -2,5 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Temperature #{temp}
-  p Humidity #{humidity}
+  case is_valid 
+    when true
+      p Temperature #{temp}
+      p Humidity #{humidity}
+    default
+      p Invalid device

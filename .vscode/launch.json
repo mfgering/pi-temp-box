@@ -31,6 +31,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
+      "args": ["--trace-warnings"],
       "program": "${workspaceFolder}/node-app/bin/www",
       "env": {
         "PORT": "3001"
