@@ -6,7 +6,7 @@ var router = express.Router();
 
 /* GET json pir page. */
 router.get('/', function(req, res, next) {
-  let json = get_sensor_data();
+  let json = get_pir_data();
   if(json.detected == null) {
     d = 'no value';
   } else if(json.detected == true) {
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 
 /* GET json pir page. */
 router.get('/json', function(req, res, next) {
-  let json = get_sensor_data();
+  let json = get_pir_data();
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(json))
 });
@@ -43,7 +43,7 @@ function setup_gpio() {
   });
 };
 
-function get_sensor_data() {
+function get_pir_data() {
   json_v = {'detected': last_pir_value};
   return json_v;
 }

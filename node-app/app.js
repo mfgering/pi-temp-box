@@ -27,7 +27,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var configRouter = require('./routes/config');
 if(enable_dht) {
-  var sensorRouter = require('./routes/sensor');
+  var dhtRouter = require('./routes/dht');
 }
 if(enable_pir) {
   var pirRouter = require('./routes/pir');
@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/config', configRouter);
 if(enable_dht) {
-  app.use('/sensor', sensorRouter);
+  app.use('/dht', dhtRouter);
 }
 if(enable_pir) {
   app.use('/pir', pirRouter);

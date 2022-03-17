@@ -32,7 +32,7 @@
         "<node_internals>/**"
       ],
       "args": ["--trace-warnings"],
-      "program": "${workspaceFolder}/node-app/bin/www",
+      "program": "${workspaceFolder}/node-app/bin/pi-box",
       "env": {
         "PORT": "3001"
       }
